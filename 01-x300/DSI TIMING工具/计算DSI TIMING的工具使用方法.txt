@@ -1,0 +1,41 @@
+#1: please download 80-NH713-1 document from https://downloads.cdmatech.com/ website at the first.
+
+#2: Find the ¡°DSI and MDP registers¡± worksheet:
+
+    a)     Input the below parameters:
+    
+    Frame rate, lane config, pixel format BPP
+    
+    Active Width, Active Height
+    
+    Hsync Pulse Width, Hori. Back Porch, Hori. Front Porch
+    
+    Vsync Pulse Width, Vert. Back Porch, Vert. Front Porch
+    
+    b)      Press ¡°CTRL + L¡± or click ¡°Check¡± icon at the top-left corner.
+    
+    c)      Maybe you can see ¡°#VALUE!¡± at DSIPHY_TIMING_CTRL_0 option.  It doesn¡¯t matter. Please go to #3 section.
+    
+#3: Go to ¡°DSI PHY timing setting¡± worksheet, you will see the DSI-related clock rate after calculation.
+
+    a)      An invalid value will also show on ¡°Check for T_CLK_ZERO¡±, click ¡°INVALID¡± option.
+    
+    b)      Press ¡°CTRL + J¡± and then press ¡°CTRL + K¡±. Please note that ¡°CTRL + J¡± is same to ¡°Reset¡± icon at the top-left corner, ¡°CTRL + K¡± is same to ¡°Validate¡± icon at the top-left corner.
+      
+    c)      Recalculate ¡°Check for T_CLK_ZERO¡± to a ¡°VALID¡± value.
+      
+    d)      Meanwhile, DSIPHY_TIMING_CTRL_0 will show a valid value.
+    
+#4:  DSI PHY values will show on ¡°DSI PHY timing setting¡± worksheet, you can see all DSI PHY timing setting registers value, e.g. DSIPHY_TIMING_CTRL_0, ¡­, DSIPHY_TIMING_CTRL_10.
+
+#5: Input the panel timings values in XML file, e.g.
+
+   <!-- Panel Timing -->
+   <PanelTimings>"0xDA, 0x34, 0x24, 0x00, 0x64, 0x68,
+                  0x28, 0x38, 0x2A, 0x03, 0x04, 0x00"</PanelTimings>
+           
+    Please note that DSIPHY_TIMING_CTRL_3 is 0x00. DSIPHY_TIMING_CTRL_11 is 0x00 as well.
+    
+Note:
+    a)      When 80-NH713-1 excel file can¡¯t work well on Windows XP, please use the Win7 OS.
+    b)      It better to use Microsoft Excel 2010 version to run this excel file.
